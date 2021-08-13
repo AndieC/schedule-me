@@ -9,7 +9,24 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <p>Hello World!</p>
+        <div class="form">
+            <!-- insert route for google auth -->
+            <form action="" method="get"> 
+                <button type="submit" class="googleauth">
+                    Login with Google
+                </button>
+            </form>
+            <!-- insert route to submit for -->
+            <form action="" method="post">
+                <label for="event title">Event Title</label>
+                <input type="text" name="title">
+                <label for="event description">Description</label>
+                <input type="text" name="description">
+                <label for="attendee email">Invite guest</label>
+                <input type="text" name="email">
+                <button type="submit" class="form submit">Send Invite</button>
+            </form>
+        </div>
         <script src="" async defer></script>
     </body>
 </html>
