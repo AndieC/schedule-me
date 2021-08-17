@@ -1,16 +1,37 @@
 const { google } = require('googleapis');
-const { OAuth2 } = google.auth;
+const router = require('express').Router();
 const passport = require('passport');
-const router = require('./routes');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+module.exports = router;
 
-router.get('/', passport.authenticate('google', {scope: 'email'}));
-//creating a new instance of oauth2 client
-const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URL);
-//creting the google auth url
-const googleUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: 'https://www.googleapis.com/auth/calendar'
-});
+router.get('/', passport.authenticate('google', {scope: ['email', 'https://www.googleapis.com/auth/calendar']}));
 
-// const { tokens } = oauth2Client.getAccessToken(data);
-// oauth2Client.setCredentials(tokens);
+router.get('/callback',
+    passport.authenticate('google', {
+        successRedirect: '/',
+        failureRedirect: '/'
+    })
+);
+
+passport.use(
+    new GoogleStrategy({
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        callbackURL: '/google/callback'
+    },
+    (token, refreshToken, profile, done) => {
+
+        done();
+    })
+)
+passport.serializeUser((user, done) => {
+    done(null, user)
+  })
+
+  passport.deserializeUser((user, done) => {
+    try {
+      done(null, user)
+    } catch (error) {
+      done(error)
+    }
+  })  
