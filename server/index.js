@@ -9,6 +9,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use('/google', require('./google'));
+
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 })
