@@ -1,0 +1,61 @@
+.container {
+    height: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-form {
+    width: 300px;
+    background-color: rgb(243, 231, 228, 0.7);
+}
+
+.google-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button {
+    margin: 10px;
+    padding: 5px;
+    background-color: #E7D1C9;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.login-button:hover {
+    background-color: #D0B49F;
+}
+.create-event {
+    width: 300px;
+    background-color: rgb(243, 231, 228, 0.7);
+}
+
+.flex-input {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.flex-input.event-description {
+    min-height: 100px;
+}
+
+.form-submit {
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flex-input.invite-button {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    flex-basis: 100px;
+    margin-left: 20px;
+}
