@@ -41,10 +41,6 @@
     margin-bottom: 10px;
 }
 
-.flex-input.event-description {
-    min-height: 100px;
-}
-
 .form-submit {
     border-radius: 4px;
     font-family: 'Poppins', sans-serif;
@@ -58,4 +54,13 @@
 label {
     flex-basis: 100px;
     margin-left: 20px;
+}
+
+@media all and (max-width: 480px) {
+    .flex-input {
+        flex-direction: column;
+    }
+    label {
+        flex-basis: 0;
+    }
 }
